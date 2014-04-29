@@ -6,31 +6,100 @@
 <link rel="stylesheet" href="hexxor.css" />
 <script type="text/javascript" src="hexxor.js"></script>
 </head>
-<body>
-Cipher Text 1:&nbsp;<input type="text" id="ct1" placeholder="Cipher Text 1">&nbsp;
-Characters:&nbsp;<span id="ct1char"></span><br><br>
-Cipher Text 2:&nbsp;<input type="text" id="ct2" placeholder="Cipher Text 2">&nbsp;
-Characters:&nbsp;<span id="ct2char"></span><br><br>
-Check Word:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="checkword" placeholder="Check Word">&nbsp;
-<br><br>
-<button onClick="submit();">XOR</button>
-<button onClick="strgrab();">Grab</button>
-<button onClick="check(0);">Check</button>
-<button onClick="check(1);">Shift L</button>
-<button onClick="check(-1);">Shift R</button>
-<button onClick="clearAll();">Clear</button><br><br>
-ASCII CipherText 1:&nbsp;<span class="result1" id="ct1ascii"></span><br>
-ASCII CipherText 2:&nbsp;<span class="result1" id="ct2ascii"></span><br>
-ASCII Result:&nbsp;<span class="result1" id="resultascii"></span><br><br>
-Hex CipherText 1:&nbsp;<span class="result" id="ct1array"></span><br>
-Hex CipherText 2:&nbsp;<span class="result" id="ct2array"></span><br>
-Hex Result:&nbsp;<span class="result" id="resulthex"></span><br>
-Hex Result (String):&nbsp;<span class="result" id="hexasstr"></span><br><br>
-Decimal CipherText 1:&nbsp;<span class="result" id="ct1dec"></span><br>
-Decimal CipherText 2:&nbsp;<span class="result" id="ct2dec"></span><br>
-Decimal Result:&nbsp;<span class="result" id="resultdec"></span><br><br>
-Binary CipherText 1:&nbsp;<span class="result" id="ct1bin"></span><br>
-Binary CipherText 2:&nbsp;<span class="result" id="ct2bin"></span><br>
-Binary Result:&nbsp;<span class="result" id="resultbin"></span><br>
+<body onLoad="init();">
+<div class="wrapper">
+	<div class="header">
+		<h1>Hexxor</h1>
+	</div>
+	<div class="left-bar">
+		<div class="input-title">CipherText 1:</div>
+		<div class="input-title">CipherText 2:</div>
+		<div class="input-title">Check Word:</div>
+	</div>
+	<div class="central">
+			<input type="text" id="ct1" placeholder="Cipher Text 1">
+			<input type="text" id="ct2" placeholder="Cipher Text 2">
+			<input type="text" id="checkword" placeholder="Check Word">
+		<div class="operands">
+			<button onClick="submit();">XOR</button>
+			<button onClick="strgrab();">Grab</button>
+			<button onClick="check(0);">Check</button>
+			<button onClick="check(1);">Shift L</button>
+			<button onClick="check(-1);">Shift R</button>
+			<button onClick="clearAll();">Clear</button>
+		</div>
+		<div id="results-wrapper">
+			<div id="results-formats">
+			  <span class="tab" onClick="tabSwap('ascii');">ASCII</span>
+			  <span class="tab" onClick="tabSwap('hex');">Hexadecimal</span>
+			  <span class="tab" onClick="tabSwap('dec');">Decimal</span>
+			  <span class="tab" onClick="tabSwap('bin');">Binary</span>
+			</div>
+			<div class="tabContent" id="ascii">
+				<div class="tab-title">
+					ASCII CipherText 1:<br>
+					ASCII CipherText 2:<br>
+					ASCII Result:
+				</div>
+				<div class="results">
+					<span id="ct1ascii"></span><br>
+					<span id="ct2ascii"></span><br>
+					<span id="resultascii"></span>
+				</div>	
+			</div>
+			<div class="tabContent" id="hex">
+				<div class="tab-title">
+					Hex CipherText 1:<br>
+					Hex CipherText 2:<br>
+					Hex Result:<br>
+					Hex Result (string):
+				</div>
+				<div class="results">
+					<span class="result" id="ct1array"></span><br>
+					<span class="result" id="ct2array"></span><br>
+					<span class="result" id="resulthex"></span><br>
+					<span class="result" id="hexasstr"></span>
+				</div>	
+			</div>
+			<div class="tabContent" id="dec">
+				<div class="tab-title">
+					Decimal CipherText 1:<br>
+					Decimal CipherText 2:<br>
+					Decimal Result:
+				</div>
+				<div class="results">
+					<span class="result" id="ct1dec"></span><br>
+					<span class="result" id="ct2dec"></span><br>
+					<span class="result" id="resultdec"></span>
+				</div>	
+			</div>
+			<div class="tabContent" id="bin">
+				<div class="tab-title">
+					Binary CipherText 1:<br>
+					Binary CipherText 2:<br>
+					Binary Result:
+				</div>
+				<div class="results">
+					<span class="result" id="ct1bin"></span><br>
+					<span class="result" id="ct2bin"></span><br>
+					<span class="result" id="resultbin"></span>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="right-bar">
+		<div class="counter">
+			Characters:
+			<span id="ct1char"></span>
+		</div>
+		<div class="counter">
+			Characters:
+			<span id="ct2char"></span>
+		</div>
+	</div>
+	<div class="footer">
+		<h2>This website was designed and built by Robbie Hayward.</h2>
+	</div>
+</div>
 </body>
 </html>
