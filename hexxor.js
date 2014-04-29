@@ -1,5 +1,6 @@
 var hexstringsave = '';
 var inv = 0;
+var resultUp = 0;
 
 var blankAsciiChars = [173]; //define visually blank ascii chars
 for (i=0; i<32; i++){
@@ -15,10 +16,10 @@ document.getElementById(place).innerHTML='';
         for (b = 0; b < num.length; b = b + 2){ //every 2 digits
         var p = parseInt(num.substr(b, 2), 16); //parse hex
         	if (blankAsciiChars.indexOf(p)>-1){ //visual blanks
-        	temparr.push(9608); //block for blanks
+        	temparr.push(8728); //ring for blanks
         	}
         	else if (p==32){
-        	temparr.push(9599); //quarter block for spaces
+        	temparr.push(8729); //bullet for spaces
         	}
         	else {
             temparr.push(String.fromCharCode(p)); //else to ascii
@@ -26,7 +27,7 @@ document.getElementById(place).innerHTML='';
         };
 for (i=0; i<temparr.length; i++){
 var x = temparr[i];
-if (x == 9608 || x == 9599){ //black blocks
+if (x == 8728 || x == 8729){ //non-visual chars
 var node=document.createElement("span");
 node.setAttribute("class","a");
 var textnode=document.createTextNode(String.fromCharCode(x));
@@ -112,6 +113,12 @@ document.getElementById("hexasstr").innerHTML = resultHexString;
 hex2ascii(resultHexString,'resultascii');
 hex2ascii(ct1Hex,'ct1ascii');
 hex2ascii(ct2Hex,'ct2ascii');
+
+if (resultUp == 0){
+tabSwap('ascii');
+resultUp = 1;
+}
+else{};
 };
 
 setInterval(function (){ //character count for cts
@@ -135,7 +142,6 @@ else{
 inv += shift;
 if (inv<0){inv=checklength-1}; //avoid negs
 };
-console.log(inv);
 var leng = document.getElementById('ct1').value.length; //for ct length
 var ct2Check = [];
 for (i=0; i<leng; i+=2){
@@ -176,4 +182,36 @@ document.getElementById("hexasstr").innerHTML = "";
 document.getElementById("resultascii").innerHTML = "";
 document.getElementById("ct1ascii").innerHTML = "";
 document.getElementById("ct2ascii").innerHTML = "";
+resultUp = 0;
+inv = 0;
+init();
+};
+
+function init(){
+var divs = document.getElementsByClassName('tabContent');
+for(var i=0; i<divs.length; i++) { 
+  divs[i].style.visibility='hidden';
+};
+};
+
+function tabSwap(tabName){
+init();
+switch (tabName){
+	case "ascii":
+		x = 'ascii';
+		break;
+	case "hex":
+	 	x = 'hex';
+		break;
+	case "dec":
+		x = 'dec';
+		break;
+	case "bin":
+		x = 'bin';
+		break;
+	default:
+		break;
+}
+document.getElementById(x).style.visibility='visible';
+resultUp = 1;
 };
