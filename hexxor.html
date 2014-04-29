@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Hexxor</title>
+<link rel="stylesheet" href="hexxor.css" />
+<script type="text/javascript" src="hexxor.js"></script>
+</head>
+<body>
+Cipher Text 1:&nbsp;<input type="text" id="ct1" placeholder="Cipher Text 1">&nbsp;
+Characters:&nbsp;<span id="ct1char"></span><br><br>
+Cipher Text 2:&nbsp;<input type="text" id="ct2" placeholder="Cipher Text 2">&nbsp;
+Characters:&nbsp;<span id="ct2char"></span><br><br>
+Check Word:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="checkword" placeholder="Check Word">&nbsp;
+<br><br>
+<button onClick="submit();">XOR</button>
+<button onClick="strgrab();">Grab</button>
+<button onClick="check(0);">Check</button>
+<button onClick="check(1);">Shift L</button>
+<button onClick="check(-1);">Shift R</button>
+<button onClick="clearAll();">Clear</button><br><br>
+ASCII CipherText 1:&nbsp;<span class="result1" id="ct1ascii"></span><br>
+ASCII CipherText 2:&nbsp;<span class="result1" id="ct2ascii"></span><br>
+ASCII Result:&nbsp;<span class="result1" id="resultascii"></span><br><br>
+Hex CipherText 1:&nbsp;<span class="result" id="ct1array"></span><br>
+Hex CipherText 2:&nbsp;<span class="result" id="ct2array"></span><br>
+Hex Result:&nbsp;<span class="result" id="resulthex"></span><br>
+Hex Result (String):&nbsp;<span class="result" id="hexasstr"></span><br><br>
+Decimal CipherText 1:&nbsp;<span class="result" id="ct1dec"></span><br>
+Decimal CipherText 2:&nbsp;<span class="result" id="ct2dec"></span><br>
+Decimal Result:&nbsp;<span class="result" id="resultdec"></span><br><br>
+Binary CipherText 1:&nbsp;<span class="result" id="ct1bin"></span><br>
+Binary CipherText 2:&nbsp;<span class="result" id="ct2bin"></span><br>
+Binary Result:&nbsp;<span class="result" id="resultbin"></span><br>
+</body>
+</html>
